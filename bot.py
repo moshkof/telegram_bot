@@ -1,7 +1,16 @@
-from token import TOKEN
+from aiogram import Bot, Dispatcher, types
+from aiogram.utils import executor 
+# from token import TOKEN
 
-TOKEN = TOKEN
+bot = Bot(token = "1611700510:AAH5poM-n5bLAHaxcTsBzSOCk38Qa64gsSE")
 
-bot = "https://api.telegram.org/bot" + TOKEN + "/getMe"
+dp = Dispatcher(bot)
 
-print(bot)
+@dp.message_handler()
+async def get_message(message: types.Message):
+    chat_id = message.chat_id
+    text = "1611700510:AAH5poM-n5bLAHaxcTsBzSOCk38Qa64gsSE"
+    sent_message = await bot.send_message(chat_id, text=text)
+    print(sent_message.to_python())
+
+executor.start_polling()
