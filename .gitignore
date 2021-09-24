@@ -1,3 +1,4 @@
 /env
 token.py
 /__pycache__/
+config.py
