@@ -4,7 +4,8 @@ import logging
 import config
 
 logging.basicConfig(level=logging.INFO)
-bot = Bot(token=config.TOKEN)
+
+bot = Bot(token=config.TOKEN, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot, run_tasks_by_default=True)
 
 
@@ -15,7 +16,10 @@ async def send_welcome(message: types.Message):
     # await bot.send_photo(chat_id,
     #                      photo="https://hh.ru/employer-logo/3587140.jpeg")
     # await bot.send_message(chat_id, text="Я использую aiogram.")
-    await bot.send_message(message.chat.id, "[Привет!\nЯ эхо-бот компании Европром!\nЯ использую aiogram.\nНапиши мне - привет.](https://hh.ru/employer-logo/3587140.jpeg)", parse_mode="markdown")
+    # await message.answer("Сообщение с <u></u>")
+    await bot.send_message(message.chat.id,
+                           "[Привет!\nЯ эхо-бот компании Европром!\nЯ использую aiogram.\nНапиши мне - привет.](https://hh.ru/employer-logo/3587140.jpeg)",
+                           parse_mode="markdown")
 
 
 @dp.message_handler()
