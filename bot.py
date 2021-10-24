@@ -1,11 +1,12 @@
+import logging
 from aiogram import Bot, Dispatcher, types
 from aiogram.utils import executor
-import logging
-import config
+
+from data import config
 
 logging.basicConfig(level=logging.INFO)
 
-bot = Bot(token=config.TOKEN, parse_mode=types.ParseMode.HTML)
+bot = Bot(token=config.BOT_TOKEN, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot, run_tasks_by_default=True)
 
 
