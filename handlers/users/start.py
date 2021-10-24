@@ -1,6 +1,6 @@
 from aiogram import types
 from aiogram.dispatcher.filters.builtin import CommandStart
-from filters.private_chat import IsPrivate
+from filters import IsPrivate
 from loader import dp
 from re import compile
 
@@ -21,10 +21,10 @@ async def bot_start(message: types.Message):
     await message.answer(f'Привет, {message.from_user.full_name}! \n'
                          f'Вы находитесь в личной переписке. \n'
                          f'В вашей команде нет диплинка. \n'
-                         f'Ваша дипинк ссылка {deep_link}. \n')
+                         f'Ваша диплинк ссылка {deep_link}. \n')
 
 
-@dp.message_handler(text="chat")
+@dp.message_handler(IsPrivate(), text="chat")
 async def user_id(message: types.Message):
     chat_id = message.chat.id
     await message.answer(chat_id)
