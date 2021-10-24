@@ -1,1 +1,3 @@
-# __all__ = ["dp"]
+from .errors import dp
+
+__all__ = ["dp"]
