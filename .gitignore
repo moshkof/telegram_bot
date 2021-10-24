@@ -1,7 +1,7 @@
 /env
 token.py
 /__pycache__/
-config.py
+/data/config.py
 /.vscode
 /.idea
 .env
